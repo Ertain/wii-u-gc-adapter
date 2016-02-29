@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 ### BEGIN INIT INFO
 # Provides:          wii-u-gc-adapter
 # Required-Start: plug in Wii U GC adapter
