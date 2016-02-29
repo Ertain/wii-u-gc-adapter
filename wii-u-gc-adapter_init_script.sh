@@ -18,7 +18,7 @@
 case "$1" in
   start)
     logger "Starting up wii-u-gc-adapter"
-    nohup "/usr/bin/wii-u-gc-adapter" &> /dev/null & 
+    /usr/bin/wii-u-gc-adapter 2&>/dev/null & 
     ;;
   stop)
     echo "Stopping wii-u-gc-adapter"
