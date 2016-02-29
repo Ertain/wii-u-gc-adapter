@@ -5,4 +5,9 @@
 # I found this trick for running a script like this from this website:
 # http://askubuntu.com/questions/395733/automatically-disable-mouse-acceleration-whenever-mouse-is-plugged
 # - Jason Anderson, September 18, 2015
-SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666", GROUP="uinput", SYMLINK+="input/wii-u-gc-adapter", RUN+="/usr/local/bin/run-wii-u-setup.sh"
+
+# Last trick didn't work.  So I got an init script to do it, instead.
+# - Jason Anderson, January 21, 2016
+ACTION=="add", KERNEL=="1-1.3", SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666", RUN+="service wii-u-gc-adapter start"
+# ACTION=="remove", SUBSYSTEM=="usb", ATTRS{ID_VENDOR_ID}=="057e", ATTRS{ID_MODEL_ID}=="0337", RUN+="service wii-u-gc-adapter stop"
+
