@@ -22,10 +22,8 @@ case "$1" in
     ;;
   stop)
     echo "Stopping wii-u-gc-adapter"
-    if pgrep -f wii-u-gc-adapter >/dev/null; then
-      logger "Killing wii-u-gc-adapter"
-      killall wii-u-gc-adapter
-    fi
+    logger "Killing wii-u-gc-adapter"
+    killall wii-u-gc-adapter
     ;;
   *)
     echo "Usage: /etc/init.d/wii-u-gc-adapter {start|stop}"
