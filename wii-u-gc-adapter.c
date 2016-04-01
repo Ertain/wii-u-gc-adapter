@@ -542,6 +542,13 @@ int main(int argc, char *argv[])
 
    memset(&sa, 0, sizeof(sa));
 
+   /* Just adding in some copyright information */
+   if (argc > 1 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))
+   {
+      fprintf(stderr, "Copyright (c) 2014-2016 Michael Lelli under the MIT License.\n");
+      return 0;
+   }
+
    if (argc > 1 && (strcmp(argv[1], "-r") == 0 || strcmp(argv[1], "--raw") == 0))
    {
       fprintf(stderr, "raw mode enabled\n");
