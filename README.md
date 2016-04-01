@@ -43,4 +43,4 @@ EndSection
 
 To properly run wii-u-gc-adapter when the adapter is plugged in, the following files have to be placed in certain directories.
 
-The file `88-wii-u-gamecube-adapter.rules` should be placed in `/etc/udev/rulles.d/`.  This starts the service `wii-u-gc-adapter`, which is started by the file, `/etc/init.d/wii-u-gc-adapter` (the wii-u-gc-adapter_init_script.sh file).
+The file `88-wii-u-gamecube-adapter.rules` should be placed in `/etc/udev/rules.d/`.  This starts the service `wii-u-gc-adapter`, which is started by the file, `/etc/init.d/wii-u-gc-adapter` (the wii-u-gc-adapter_init_script.sh file).
