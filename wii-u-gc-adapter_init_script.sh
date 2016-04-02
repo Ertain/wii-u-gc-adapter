@@ -14,6 +14,11 @@
 # Code based on script by user baddger
 # https://github.com/ToadKing/wii-u-gc-adapter/issues/12#issuecomment-129611900
 
+# Source that code.
+test -f /etc/default/rcS && . /etc/default/rcS
+
+. /lib/lsb/init-functions
+
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
@@ -24,6 +29,13 @@ case "$1" in
     echo "Stopping wii-u-gc-adapter"
     logger "Killing wii-u-gc-adapter"
     killall wii-u-gc-adapter
+    ;;
+  restart|force-reload)
+    echo "Reloading wii-u-gc-adapter"
+    logger "Reloading wii-u-gc-adapter"
+    killall wii-u-gc-adapter
+    sleep 1
+    /usr/bin/wii-u-gc-adapter 2&>/dev/null & 
     ;;
   *)
     echo "Usage: /etc/init.d/wii-u-gc-adapter {start|stop}"
