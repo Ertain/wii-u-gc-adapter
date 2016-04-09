@@ -14,9 +14,7 @@
 # Code based on script by user baddger
 # https://github.com/ToadKing/wii-u-gc-adapter/issues/12#issuecomment-129611900
 
-# Source that code.
-test -f /etc/default/rcS && . /etc/default/rcS
-
+# Pull in the default init-functions
 . /lib/lsb/init-functions
 
 # Carry out specific functions when asked to by the system
