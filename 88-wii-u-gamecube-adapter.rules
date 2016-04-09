@@ -9,5 +9,5 @@
 # Last trick didn't work.  So I got an init script to do it, instead.
 # - Jason Anderson, January 21, 2016
 ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666", RUN+="/bin/sh -c 'service wii-u-gc-adapter start'"
-ACTION=="remove", SUBSYSTEM=="usb", ATTRS{ID_MODEL}=="WUP-028", RUN+="/bin/sh -c 'service wii-u-gc-adapter stop'"
+ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_MODEL}=="WUP-028", RUN+="/bin/sh -c 'service wii-u-gc-adapter stop'"
 
