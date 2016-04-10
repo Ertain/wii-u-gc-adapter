@@ -35,6 +35,10 @@ case "$1" in
     sleep 1
     /usr/bin/wii-u-gc-adapter 2&>/dev/null & 
     ;;
+  required-start|required-stop)
+  # Should probably put something here.
+  # ...But I won't.
+    ;;
   *)
     echo "Usage: /etc/init.d/wii-u-gc-adapter {start|stop}"
     exit 1
