@@ -1,6 +1,6 @@
 #! /bin/bash
 ### BEGIN INIT INFO
-# Provides:          wii-u-gc-adapter
+# Provides: wii-u-gc-adapter
 # Required-Start: plug in Wii U GC adapter
 # Required-Stop: unplug Wii U GC adapter
 # Default-Start: 2 3 4 5
@@ -8,7 +8,7 @@
 # Short-Description: Launch Wii U GC adapter driver
 # Description: This init script starts the app wii-u-gc-adapter,
 #              which allows you to use the Wii U GC adapter for 
-#              games.
+#              Gamecube controllers.
 ### END INIT INFO
 
 # Code based on script by user baddger
@@ -21,7 +21,8 @@
 case "$1" in
   start)
     logger "Starting up wii-u-gc-adapter"
-    /usr/bin/wii-u-gc-adapter 2&>/dev/null & 
+    echo "[" $(date "+%a %b %d, %Y - %H:%M:%S") "]" >> /var/log/wii-u-gc-adapter.log
+    /usr/bin/wii-u-gc-adapter 2>&1 /var/log/wii-u-gc-adapter.log  & 
     ;;
   stop)
     echo "Stopping wii-u-gc-adapter"
@@ -33,14 +34,14 @@ case "$1" in
     logger "Reloading wii-u-gc-adapter"
     killall wii-u-gc-adapter
     sleep 1
-    /usr/bin/wii-u-gc-adapter 2&>/dev/null & 
+    /usr/bin/wii-u-gc-adapter 2&>/var/log/wii-u-gc-adapter & 
     ;;
   required-start|required-stop)
   # Should probably put something here.
   # ...But I won't.
     ;;
   *)
-    echo "Usage: /etc/init.d/wii-u-gc-adapter {start|stop}"
+    echo "Usage: /etc/init.d/wii-u-gc-adapter {start|stop|restart}"
     exit 1
     ;;
 esac
