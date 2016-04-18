@@ -22,7 +22,7 @@ case "$1" in
   start)
     logger "Starting up wii-u-gc-adapter"
     echo "[" $(date "+%a %b %d, %Y - %H:%M:%S") "]" >> /var/log/wii-u-gc-adapter.log
-    /usr/bin/wii-u-gc-adapter 2>&1 /var/log/wii-u-gc-adapter.log  & 
+    /usr/bin/wii-u-gc-adapter >> /var/log/wii-u-gc-adapter.log 2>&1  & 
     ;;
   stop)
     echo "Stopping wii-u-gc-adapter"

@@ -554,6 +554,7 @@ int main(int argc, char *argv[])
    struct udev_device *uinput;
    struct sigaction sa;
 
+   /* Let's take in some standard input */
    fprintf(stderr, "Running wii-u-gc-adapter.  Use --raw for raw (non scaled) input.  Use --debug for debug mode.  Please enjoy all the games yo!\n");
 
    memset(&sa, 0, sizeof(sa));
