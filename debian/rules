@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# For now, I have to make do with making the directories manually, and then
+# placing the files in those directories.
+MANUAL_BIN_DIR=$$(pwd)/debian/wii-u-gc-adapter/usr/bin
+MANUAL_ETC_DIR=$$(pwd)/debian/wii-u-gc-adapter/etc
+# According to Lintian, udev rules should be placed in the usual /lib/udev/rules.d
+# place or something.
+MANUAL_LIB_DIR=$$(pwd)/debian/wii-u-gc-adapter/lib/udev/rules.d
+MANUAL_XORG_DIR=$$(pwd)/debian/wii-u-gc-adapter/usr/share/X11/xorg.conf.d
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p "$(MANUAL_BIN_DIR)"
+	mkdir -p "$(MANUAL_LIB_DIR)"
+	mkdir -p "$(MANUAL_ETC_DIR)/init.d/"
+	mkdir -p "$(MANUAL_XORG_DIR)"
+	cp wii-u-gc-adapter "$(MANUAL_BIN_DIR)"
+	cp 88-wii-u-gamecube-adapter.rules "$(MANUAL_LIB_DIR)/"
+	cp wii-u-gc-adapter_init_script.sh "$(MANUAL_ETC_DIR)/init.d/wii-u-gc-adapter"
+	cp 50-wii-u-gamecube-adapter.conf "$(MANUAL_XORG_DIR)"
+

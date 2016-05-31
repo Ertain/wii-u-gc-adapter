@@ -1,0 +1,13 @@
+Source: wii-u-gc-adapter
+Section: misc
+Priority: optional
+Maintainer: Jason Anderson <jasonA.594@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), libudev-dev, libusb-1.0-0-dev (>= 1.0.16)
+Standards-Version: 3.9.4
+Vcs-Git: https://github.com/Ertain/wii-u-gc-adapter.git
+
+Package: wii-u-gc-adapter
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libudev1, libusb-1.0-0 (>= 1.0.16)
+Description: Using the Wii U Gamecube adapter
+ This program is for using the Wii U Gamecube adapter under Linux.
