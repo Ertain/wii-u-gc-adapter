@@ -16,8 +16,8 @@ Usage
 -----
 Simply run the program. You'll probably have to run it as root in order to
 grab the USB device from the kernel and use the uinput interface. Both of
-these can be worked around with udev rules, which I'm currently too lazy to
-add at the moment. To stop the program just kill it in any way you want.
+these can be worked around with udev rules, which are detailed below. To
+stop the program just kill it in any way you want.
 
 Seperate virtual controllers are created for each one plugged into the adapter
 and hotplugging (both controllers and adapters) is supported.
