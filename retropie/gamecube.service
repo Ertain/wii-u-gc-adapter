@@ -1,0 +1,12 @@
+[Unit]
+Description=Wii U Gamecube Adapter
+Before=systemd-user-sessions.service
+
+[Service]
+TimeoutStartSec=0
+
+ExecStart=/usr/local/bin/wii-u-gc-adapter
+User=root
+
+[Install]
+WantedBy=multi-user.target
